@@ -26,6 +26,11 @@ RR 5==>   -----   ------  <== RL 4 roll left
   #define PIN_YR 3 //servo[3]
   #define PIN_RL 4 //servo[4]
   #define PIN_RR 5 //servo[5]
+  #define L_CAL true //load trim values from EEPROM
+  #define NOISE_S -1
+  #define PIN_BUZ //Buzzer pin
+  #define PIN_TRG //Ultrasonic sensor trigger pin
+  #define PIN_ECHO // Ultrasonic sensor Echo pin
 
 ///////////////////////////////////////////////////////////////////
 //-- Global Variables -------------------------------------------//
@@ -41,7 +46,7 @@ bool obstacleDetected = false;
 ///////////////////////////////////////////////////////////////////
 void setup(){
   //Set the servo pins
-  Otto.init(PIN_YL,PIN_YR,PIN_RL,PIN_RR,true, -1, 10, 8, 9);
+  Otto.init(PIN_YL,PIN_YR,PIN_RL,PIN_RR,L_CAL, NOISE_S, PIN_BUZ, PIN_TRG, PIN_ECHO);
   Otto.sing(S_connection); //Otto wake up!
   Otto.home();
   delay(50);
